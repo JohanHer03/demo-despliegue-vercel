@@ -1,0 +1,130 @@
+:root {
+  --verde: #1a7f37;
+  --verde-oscuro: #146c2e;
+  --texto: #1f2328;
+  --gris: #656d76;
+  --borde: #d0d7de;
+  --fondo: #f6f8fa;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.contenedor {
+  max-width: 600px;
+  margin: 48px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: var(--verde);
+}
+
+.subtitulo {
+  margin: 6px 0 24px;
+  font-size: 0.85rem;
+  color: var(--gris);
+}
+
+.formulario {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.formulario input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+
+.formulario input:focus {
+  outline: 2px solid var(--verde);
+  border-color: var(--verde);
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--verde);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--verde-oscuro);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--borde);
+}
+
+.lista label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+.lista input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--verde);
+}
+
+.hecha {
+  text-decoration: line-through;
+  color: var(--gris);
+}
+
+.borrar {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  background: transparent;
+  color: #cf222e;
+  border: 1px solid var(--borde);
+}
+
+.borrar:hover {
+  background: #ffebe9;
+}
+
+.info {
+  color: var(--gris);
+}
+
+.error {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #ffebe9;
+  color: #cf222e;
+}
