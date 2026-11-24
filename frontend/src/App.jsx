@@ -72,7 +72,7 @@ export default function App() {
 
   return (
     <main className="contenedor">
-      <h1>Mis tareas</h1>
+      <h1>Mis tareas - cambio en video de prueba</h1>
       <p className="subtitulo">React → Spring Boot → Supabase · desplegado en Vercel</p>
 
       <form className="formulario" onSubmit={agregar}>
