@@ -1,0 +1,22 @@
+# Imagen del frontend SOLO para correr en local con Docker.
+# En Vercel el frontend NO usa esta imagen: se construye como Vite y se sirve desde la CDN.
+# (Se llama Dockerfile.local para que Vercel no lo confunda con un servicio de contenedor.)
+
+# ---------- Etapa build ----------
+FROM node:24-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# ---------- Etapa run: nginx sirve los estáticos y reenvía /api al backend ----------
+FROM nginx:stable-alpine
+# Al arrancar, nginx reemplaza ${PORT} y ${BACKEND_URL} en la plantilla
+COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+COPY --from=build /app/dist /usr/share/nginx/html
+
+ENV PORT=80
+# Nombre del contenedor del backend dentro de la red de Docker
+ENV BACKEND_URL=http://backend:80
+EXPOSE 80
